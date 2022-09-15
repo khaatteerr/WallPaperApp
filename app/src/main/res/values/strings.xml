@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RetroMVVM</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="WallPaper">WallPapers</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="Categories">Categories</string>
+    <string name="back">back</string>
+
+</resources>
