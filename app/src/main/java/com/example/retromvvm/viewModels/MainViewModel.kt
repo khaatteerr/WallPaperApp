@@ -30,14 +30,16 @@ class MainViewModel : ViewModel() {
             Constants.POPULAR -> {
                 loadDataToPopular()
             }
-            Constants.RANDOM ->{
+            Constants.RANDOM -> {
                 loadDataToRandom()
             }
 
-
-            else -> {throw Exception("NOT FOUND")}
+            else -> {
+                throw Exception("NOT FOUND")
+            }
         }
     }
+
 
     private fun loadDataToHome(): Flow<PagingData<Data>> {
         return Pager(config = PagingConfig(pageSize = 30),
@@ -56,9 +58,10 @@ class MainViewModel : ViewModel() {
             pagingSourceFactory = { RandomPagingSource(repository.retroService()) }
         ).flow.cachedIn(viewModelScope)
     }
-      fun loadCategoryToRandom(category:String): Flow<PagingData<Data>> {
+
+    fun loadCategoryToRandom(category: String): Flow<PagingData<Data>> {
         return Pager(config = PagingConfig(pageSize = 30),
-            pagingSourceFactory = { CategoryPagingSource(repository.retroService(),category) }
+            pagingSourceFactory = { CategoryPagingSource(repository.retroService(), category) }
         ).flow.cachedIn(viewModelScope)
     }
 

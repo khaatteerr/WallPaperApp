@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bottom_sheets_menu" />
+
+    <Button
+        android:id="@+id/downLoadFromNet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:background="@drawable/main_selector"
+        android:drawableStart="@drawable/downloadsvg"
+        android:drawablePadding="@dimen/_70sdp"
+        android:elevation="@dimen/_10sdp"
+        android:gravity="left|center_vertical"
+        android:paddingStart="@dimen/_10sdp"
+        android:text="@string/download_image"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_12ssp" />
+
+    <Button
+        android:id="@+id/setAsBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:background="@drawable/main_selector"
+        android:drawableStart="@drawable/ic_baseline_wallpaper_24"
+        android:drawablePadding="@dimen/_70sdp"
+        android:elevation="@dimen/_10sdp"
+        android:gravity="left|center_vertical"
+        android:paddingStart="@dimen/_10sdp"
+        android:text="@string/set_as_background"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_12ssp" />
+    <Button
+        android:id="@+id/setAsLockscreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:background="@drawable/main_selector"
+        android:drawableStart="@drawable/ic_baseline_lock_open_24"
+        android:drawablePadding="@dimen/_70sdp"
+        android:elevation="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:gravity="left|center_vertical"
+        android:paddingStart="@dimen/_10sdp"
+        android:text="@string/set_as_lockscreen"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_12ssp" />
+
+
+
+
+</LinearLayout>

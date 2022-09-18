@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         initViewPager()
         initTabLayout()
 
+
     }
 
     private fun initTabLayout() {

@@ -7,4 +7,12 @@
     <string name="Categories">Categories</string>
     <string name="back">back</string>
 
+    <string name="download">downLoad</string>
+    <string name="set_wallpaper">Set Wallpaper</string>
+    <string name="download_image">download</string>
+    <string name="set_both">set both</string>
+    <string name="set_as_background">set as background</string>
+    <string name="set_as_lockscreen">set as lockscreen</string>
+
+
 </resources>

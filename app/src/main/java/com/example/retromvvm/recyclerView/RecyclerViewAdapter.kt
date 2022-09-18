@@ -1,5 +1,6 @@
 package com.example.retromvvm.recyclerView
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,8 @@ import com.example.retromvvm.R
 import com.example.retromvvm.databinding.ItemRecyclerViewBinding
 import com.example.retromvvm.model.domain.Data
 
+import com.example.retromvvm.ui.activities.DownloadActivity
+import com.example.retromvvm.utils.Constants
 
 
 class RecyclerViewAdapter :
@@ -40,20 +43,29 @@ class RecyclerViewAdapter :
         fun bind(data: Data) {
 
 
-
-
             val circularProgressDrawable = CircularProgressDrawable(itemView.context)
             circularProgressDrawable.strokeWidth = 5f
             circularProgressDrawable.centerRadius = 30f
             circularProgressDrawable.start()
+
             Glide.with(itemView.context)
                 .load(data.smallImageUrl)
                 .centerCrop()
                 .error(R.color.babyBlue)
-                .placeholder( circularProgressDrawable)
+
+                .placeholder(circularProgressDrawable)
                 .into(binding.imageView)
 
 
+
+
+
+            itemView.setOnClickListener {
+                val intent = Intent(it.context, DownloadActivity::class.java)
+                intent.putExtra(Constants.DOWNLOADWALL, data.fullImageUrl)
+                intent.putExtra(Constants.IMAGE_NAME, data.description)
+                it.context.startActivity(intent)
+            }
         }
 
     }

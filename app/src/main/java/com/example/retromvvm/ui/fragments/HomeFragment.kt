@@ -11,6 +11,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
     FragmentHomeBinding::inflate
 ) {
 
+
+
     override fun initViewModel() {
         lifecycleScope.launch {
             viewModel.loadDataParameter(Constants.HOME).collect {
@@ -24,4 +26,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         binding.wallRecyclerView.layoutManager = layoutManager
         binding.wallRecyclerView.adapter = recyclerViewAdapter
     }
+
 }

@@ -12,4 +12,7 @@
     <color name="appBar">#202121</color>
     <color name="red">#e74c3c</color>
     <color name="babyBlue">#7EC8E3</color>
+
+    <color name="whiteBlue">#03C3CE</color>
+
 </resources>

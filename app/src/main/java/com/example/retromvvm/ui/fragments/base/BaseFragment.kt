@@ -34,9 +34,11 @@ abstract class BaseFragment<VB : ViewBinding>(
             throw IllegalArgumentException("binding cannot be null")
         }
         recyclerViewAdapter = RecyclerViewAdapter()
-        initViewModel()
+         initViewModel()
         recyclerAdapter()
-        return binding.root
+         recyclerAdapter()
+        initViewModel()
+         return binding.root
     }
 
     abstract fun initViewModel()
