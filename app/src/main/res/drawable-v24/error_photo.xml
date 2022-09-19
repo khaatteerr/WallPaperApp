@@ -2,6 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <solid android:color="#f5f6fa" />
-    <corners android:radius="1000dp" />
-
+    <corners android:radius="0dp" />
+    <gradient android:startColor="@color/toolbar"
+        android:endColor="@color/whiteBlue"/>
+     
 </shape>

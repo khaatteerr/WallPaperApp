@@ -9,11 +9,13 @@ import com.bumptech.glide.Glide
 import com.example.retromvvm.R
 import com.example.retromvvm.databinding.CategoryRowBinding
 import com.example.retromvvm.model.domain.Category
+import com.example.retromvvm.model.domain.CategoryName
 import com.example.retromvvm.ui.activities.CategoriesActivity
 import com.example.retromvvm.utils.Constants
 
 class CategoriesAdapter(private val category: List<Category>) :
     RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
+
 
     class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = CategoryRowBinding.bind(view)
@@ -28,6 +30,7 @@ class CategoriesAdapter(private val category: List<Category>) :
         val currentCategory = category[position]
         holder.binding.apply {
             categoryTextView.text = currentCategory.categoryName
+
             Glide.with(holder.itemView.context)
                 .load(currentCategory.imageUrl)
                 .centerCrop()

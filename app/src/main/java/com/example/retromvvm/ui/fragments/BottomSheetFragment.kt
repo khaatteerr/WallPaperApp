@@ -25,8 +25,6 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: BottomSheetBinding
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,7 +43,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
         binding.downLoadFromNet.setOnClickListener {
             downloadImageFromWeb(wallUrl.toString(), imageName?.split("-").toString())
-         }
+        }
         binding.setAsBackground.setOnClickListener {
             setAsBackground(Constants.BackGroundState.backGround)
         }
@@ -61,7 +59,6 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 context?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
 
             val downloadUri = Uri.parse(url)
-
 
             val request = DownloadManager.Request(downloadUri).apply {
                 setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
@@ -85,23 +82,25 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     }
 
 
+    private fun setAsBackground(LockOrBackGround: Int) {
 
-
-
-    private fun setAsBackground(LockOrBackGround : Int){
-
-
-        val wallpaperManager = WallpaperManager.getInstance(context)
-        val image =activity?.findViewById<ShapeableImageView>(R.id.downloadImageView)
-        val bitmap = (image?.drawable as BitmapDrawable).bitmap
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        try {
-            wallpaperManager.setBitmap(bitmap,null,true,LockOrBackGround)
-            Toast.makeText(context,"DONE",Toast.LENGTH_LONG).show()
-        }catch (e:IOException){
-            Toast.makeText(context,e.message,Toast.LENGTH_LONG).show()
-        }
+            try {
+                val wallpaperManager = WallpaperManager.getInstance(context)
+                val image = activity?.findViewById<ShapeableImageView>(R.id.downloadImageView)
+                if (image?.drawable == null) {
+                    Toast.makeText(context, "Wait to loading", Toast.LENGTH_LONG).show()
+                } else {
+                    val bitmap = (image.drawable as BitmapDrawable).bitmap
+                    wallpaperManager.setBitmap(bitmap, null, true, LockOrBackGround)
+                    Toast.makeText(context, "DONE", Toast.LENGTH_LONG).show()
+                }
 
-    }}
+            } catch (e: IOException) {
+                Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
 }
 

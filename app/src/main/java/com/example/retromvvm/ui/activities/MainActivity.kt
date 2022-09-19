@@ -1,5 +1,6 @@
 package com.example.retromvvm.ui.activities
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -61,17 +62,15 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.search -> {
-                searchInApi()
+                startActivity(Intent(this,SearchActivity::class.java))
              }
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun searchInApi() {
-         Toast.makeText(this,"search",Toast.LENGTH_LONG).show()
-    }
+
 }

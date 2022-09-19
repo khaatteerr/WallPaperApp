@@ -5,16 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ui.activities.MainActivity">
+    android:orientation="vertical"
+    tools:context=".ui.activities.SearchActivity">
+
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:ems="10"
+        android:padding="@dimen/_10sdp"
+        android:background="@drawable/search_style"
+        android:inputType="textPersonName"
+        android:hint="@string/search"
+        android:textSize="@dimen/_15sdp"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:textColorHint="@color/white"
+        android:drawablePadding="@dimen/_10sdp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/wallRecyclerView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -24,17 +45,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <Button
         android:id="@+id/buttonRetry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="retry"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/wallRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-      />
-
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

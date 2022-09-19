@@ -5,6 +5,7 @@ object Constants {
     const val POPULAR = "popular"
     const val RANDOM = "random"
     const val CATEGORY =  "category"
+    const val CATEGORY_NAME = "categoryName"
 
     const val DOWNLOADWALL = "downloadWall"
     const val IMAGE_NAME= "imageName"

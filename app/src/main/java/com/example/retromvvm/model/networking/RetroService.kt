@@ -1,5 +1,6 @@
 package com.example.retromvvm.model.networking
 
+import com.example.retromvvm.model.domain.Data
 import com.example.retromvvm.model.domain.Wallpaper
 import retrofit2.Response
 import retrofit2.http.GET
@@ -12,12 +13,11 @@ interface RetroService {
     suspend fun getHomeFromApi(@Query("page") page: Int?): Wallpaper
 
 
-
     @GET("popular")
     suspend fun getPopularFromApi(@Query("page") page: Int?): Wallpaper
 
     @GET("popular")
-    suspend fun getDataFromApi(@Query("page") page: Int?): Response<Wallpaper>
+    suspend fun getCategoryDataFromApi(@Query("category") category: String?): Data
 
 
     @GET("latest")

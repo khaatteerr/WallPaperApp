@@ -24,12 +24,13 @@
         android:id="@+id/downloadImageView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_50sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_70sdp"
+        android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:layout_marginEnd="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_100sdp"
         android:adjustViewBounds="true"
         android:elevation="@dimen/_5sdp"
+        android:src="@drawable/bluredimage"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +46,7 @@
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/downloadImageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/downloadImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

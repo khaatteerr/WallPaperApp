@@ -50,7 +50,7 @@ class RecyclerViewAdapter :
             Glide.with(itemView.context)
                 .load(data.smallImageUrl)
                 .centerCrop()
-                .error(R.color.babyBlue)
+                .error(R.drawable.error_photo)
                 .placeholder(circularProgressDrawable)
                 .into(binding.imageView)
 

@@ -1,12 +1,15 @@
 package com.example.retromvvm.ui.fragments
 
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.CombinedLoadStates
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.retromvvm.databinding.FragmentPopularBinding
-import com.example.retromvvm.model.paging.LoaderAdapter
+import com.example.retromvvm.model.paging.loadingState.LoadStateAdapter
 import com.example.retromvvm.ui.fragments.base.BaseFragment
-import com.example.retromvvm.utils.Constants
 import com.example.retromvvm.viewModels.PopularViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
@@ -24,15 +27,34 @@ class PopularFragment : BaseFragment<FragmentPopularBinding>(
                 recyclerViewAdapter.submitData(it)
             }
         }
+
     }
 
     override fun recyclerAdapter() {
         val layoutManager = GridLayoutManager(context, 3)
         binding.wallRecyclerViewPopular.layoutManager = layoutManager
         binding.wallRecyclerViewPopular.adapter = recyclerViewAdapter.withLoadStateHeaderAndFooter(
-            header = LoaderAdapter(),
-            footer = LoaderAdapter()
+            header = LoadStateAdapter{recyclerViewAdapter.retry()},
+            footer = LoadStateAdapter{recyclerViewAdapter.retry()}
         )
+        recyclerViewAdapter.addLoadStateListener {loadState->
+            binding.wallRecyclerViewPopular.isVisible = loadState.source.refresh is LoadState.NotLoading
+            binding.popularProgressBar.isVisible = loadState.source.refresh is LoadState.Loading
+            binding.popularButtonRetry.isVisible = loadState.source.refresh is LoadState.Error
+            handelError(loadState)
+        }
+        binding.popularButtonRetry.setOnClickListener {
+            recyclerViewAdapter.retry()
+        }
     }
+//    private fun handelError(loadStates: CombinedLoadStates) {
+//        val errorState = loadStates.source.append as? LoadState.Error
+//            ?: loadStates.source.prepend as? LoadState.Error
+//
+//        errorState?.let {
+//            Toast.makeText(context,"${it.error}", Toast.LENGTH_LONG).show()
+//        }
+//
+//    }
 
 }

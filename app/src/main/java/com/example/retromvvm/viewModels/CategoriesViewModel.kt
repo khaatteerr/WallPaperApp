@@ -8,7 +8,6 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.retromvvm.model.domain.Data
 import com.example.retromvvm.model.paging.CategoryPagingSource
-import com.example.retromvvm.model.paging.PopularPagingSource
 import com.example.retromvvm.repository.MainRepository
 import kotlinx.coroutines.flow.Flow
 

@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     android:background="@color/black"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
     tools:context=".ui.activities.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -12,4 +13,23 @@
         android:layout_height="match_parent"
         />
 
+    <ProgressBar
+        android:id="@+id/popularProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="167dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/popularButtonRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="151dp"
+        android:layout_marginBottom="1dp"
+        android:text="retry"
+        app:layout_constraintBottom_toBottomOf="@+id/popularProgressBar"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
