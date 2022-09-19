@@ -5,24 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.viewbinding.ViewBinding
 import com.example.retromvvm.recyclerView.RecyclerViewAdapter
-import com.example.retromvvm.viewModels.MainViewModel
 import java.lang.IllegalArgumentException
 
-abstract class BaseFragment<VB : ViewBinding>(
+abstract class BaseFragment<VB : ViewBinding   >(
     private val bindingInflater: (inflater: LayoutInflater) -> VB
 ) : Fragment() {
 
 
     private var _binding: VB? = null
     val binding: VB
-        get() = _binding as VB
+       get() = _binding as VB
 
     lateinit var recyclerViewAdapter: RecyclerViewAdapter
 
-    val viewModel: MainViewModel by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,11 +32,12 @@ abstract class BaseFragment<VB : ViewBinding>(
             throw IllegalArgumentException("binding cannot be null")
         }
         recyclerViewAdapter = RecyclerViewAdapter()
-         initViewModel()
-        recyclerAdapter()
-         recyclerAdapter()
         initViewModel()
-         return binding.root
+        recyclerAdapter()
+        recyclerAdapter()
+        initViewModel()
+
+        return binding.root
     }
 
     abstract fun initViewModel()

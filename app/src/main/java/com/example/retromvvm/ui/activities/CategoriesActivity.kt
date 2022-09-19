@@ -11,13 +11,13 @@ import com.example.retromvvm.R
 import com.example.retromvvm.databinding.ActivityCategoriesBinding
 import com.example.retromvvm.recyclerView.RecyclerViewAdapter
 import com.example.retromvvm.utils.Constants
-import com.example.retromvvm.viewModels.MainViewModel
+import com.example.retromvvm.viewModels.CategoriesViewModel
 import kotlinx.coroutines.launch
 
 class CategoriesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCategoriesBinding
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: CategoriesViewModel by viewModels()
     private val recyclerViewAdapter = RecyclerViewAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {

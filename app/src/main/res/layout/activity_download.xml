@@ -30,6 +30,7 @@
         android:layout_marginBottom="@dimen/_70sdp"
         android:adjustViewBounds="true"
         android:elevation="@dimen/_5sdp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

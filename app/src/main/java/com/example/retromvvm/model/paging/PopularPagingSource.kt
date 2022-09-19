@@ -8,7 +8,10 @@ import com.example.retromvvm.model.networking.RetroService
 class PopularPagingSource(private val apiService: RetroService) :
     PagingSource<Int, Data>() {
     override fun getRefreshKey(state: PagingState<Int, Data>): Int? {
-        return state.anchorPosition
+        return state.anchorPosition?.let { anchorPosition ->
+            val anchorPage = state.closestPageToPosition(anchorPosition)
+            anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
+        }
     }
 
 
@@ -22,8 +25,6 @@ class PopularPagingSource(private val apiService: RetroService) :
                 prevKey = null,
                 nextKey = responsePopular.pagination?.next?.page,
             )
-
-
         } catch (e: Exception) {
             LoadResult.Error(e)
         }

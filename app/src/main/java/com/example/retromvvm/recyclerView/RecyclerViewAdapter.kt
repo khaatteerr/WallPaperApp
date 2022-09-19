@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide
 import com.example.retromvvm.R
 import com.example.retromvvm.databinding.ItemRecyclerViewBinding
 import com.example.retromvvm.model.domain.Data
-
 import com.example.retromvvm.ui.activities.DownloadActivity
 import com.example.retromvvm.utils.Constants
 
@@ -42,17 +41,16 @@ class RecyclerViewAdapter :
 
         fun bind(data: Data) {
 
-
             val circularProgressDrawable = CircularProgressDrawable(itemView.context)
             circularProgressDrawable.strokeWidth = 5f
             circularProgressDrawable.centerRadius = 30f
             circularProgressDrawable.start()
 
+
             Glide.with(itemView.context)
                 .load(data.smallImageUrl)
                 .centerCrop()
                 .error(R.color.babyBlue)
-
                 .placeholder(circularProgressDrawable)
                 .into(binding.imageView)
 
@@ -77,7 +75,7 @@ class RecyclerViewAdapter :
         }
 
         override fun areContentsTheSame(oldItem: Data, newItem: Data): Boolean {
-            return oldItem.blurHash == newItem.blurHash
+            return oldItem == newItem
 
         }
     }

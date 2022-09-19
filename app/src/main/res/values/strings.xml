@@ -13,6 +13,7 @@
     <string name="set_both">set both</string>
     <string name="set_as_background">set as background</string>
     <string name="set_as_lockscreen">set as lockscreen</string>
+    <string name="search">search</string>
 
 
 </resources>

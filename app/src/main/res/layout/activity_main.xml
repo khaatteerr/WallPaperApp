@@ -26,13 +26,7 @@
             app:titleCollapseMode="fade">
 
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                style="@style/Image"
-                android:src="@drawable/finalbanner"
-                app:layout_collapseMode="parallax" />
+
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"

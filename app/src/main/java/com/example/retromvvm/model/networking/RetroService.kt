@@ -1,7 +1,8 @@
 package com.example.retromvvm.model.networking
 
 import com.example.retromvvm.model.domain.Wallpaper
- import retrofit2.http.GET
+import retrofit2.Response
+import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface RetroService {
@@ -14,6 +15,10 @@ interface RetroService {
 
     @GET("popular")
     suspend fun getPopularFromApi(@Query("page") page: Int?): Wallpaper
+
+    @GET("popular")
+    suspend fun getDataFromApi(@Query("page") page: Int?): Response<Wallpaper>
+
 
     @GET("latest")
     suspend fun getRandomFromApi(@Query("page") page: Int?): Wallpaper

@@ -1,7 +1,14 @@
 package com.example.retromvvm.ui.activities
 
+import android.os.Build
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.SearchView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.retromvvm.R
 import com.example.retromvvm.databinding.ActivityMainBinding
 import com.example.retromvvm.ui.fragments.CategoriesFragment
 import com.example.retromvvm.ui.fragments.PopularFragment
@@ -48,5 +55,23 @@ class MainActivity : AppCompatActivity() {
         binding.toolbar.title = "Wallpapers"
         setSupportActionBar(binding.toolbar)
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
+        menuInflater.inflate(R.menu.pop_up_menu, menu)
+        return true
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.search -> {
+                searchInApi()
+             }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun searchInApi() {
+         Toast.makeText(this,"search",Toast.LENGTH_LONG).show()
+    }
 }

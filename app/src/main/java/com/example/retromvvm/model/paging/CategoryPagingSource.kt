@@ -8,7 +8,10 @@ import com.example.retromvvm.model.networking.RetroService
 class CategoryPagingSource (private val apiService: RetroService,private val category : String) :
     PagingSource<Int, Data>() {
     override fun getRefreshKey(state: PagingState<Int, Data>): Int? {
-        return state.anchorPosition
+        return state.anchorPosition?.let { anchorPosition ->
+            val anchorPage = state.closestPageToPosition(anchorPosition)
+            anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
+        }
     }
 
 
@@ -16,7 +19,6 @@ class CategoryPagingSource (private val apiService: RetroService,private val cat
         return try {
             val nextPage = params.key ?: FIRST_PAGE_INDEX
             val responsePopular = apiService.getCategoryFromApi(nextPage,category)
-
             LoadResult.Page(
                 data = responsePopular.data,
                 prevKey = null,
