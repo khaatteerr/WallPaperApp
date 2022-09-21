@@ -7,7 +7,7 @@ object Constants {
     const val CATEGORY =  "category"
     const val CATEGORY_NAME = "categoryName"
 
-    const val DOWNLOADWALL = "downloadWall"
+    const val DOWNLOAD_WALL = "downloadWall"
     const val IMAGE_NAME= "imageName"
 
     object BackGroundState{

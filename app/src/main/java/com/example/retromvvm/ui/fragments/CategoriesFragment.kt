@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.retromvvm.databinding.FragmentCategoriesBinding
-import com.example.retromvvm.model.domain.Category
-import com.example.retromvvm.model.domain.CategoryName
 import com.example.retromvvm.recyclerView.CategoriesAdapter
 import com.example.retromvvm.utils.ApiListCategory
 

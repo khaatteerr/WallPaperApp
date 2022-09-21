@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/main_background"
     tools:context=".ui.activities.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@color/main_background"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:elevation="0dp">
 
@@ -18,14 +18,12 @@
             android:id="@+id/collapsing"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_88sdp"
-            app:expandedTitleTextColor="@color/white"
-            app:expandedTitleTextAppearance="@style/Toolbar.TitleText.expanded"
             app:collapsedTitleTextAppearance="@style/Toolbar.TitleText"
             app:expandedTitleGravity="center_vertical|center_horizontal|bottom"
+            app:expandedTitleTextAppearance="@style/Toolbar.TitleText.expanded"
+            app:expandedTitleTextColor="@color/white"
             app:layout_scrollFlags="scroll|enterAlways|snap|snapMargins"
             app:titleCollapseMode="fade">
-
-
 
 
             <androidx.appcompat.widget.Toolbar
@@ -34,8 +32,7 @@
                 android:layout_height="?attr/actionBarSize"
                 app:contentScrim="@color/white"
                 app:navigationContentDescription="menu"
-                app:navigationIcon="@drawable/ic_baseline_menu_24"
-                />
+                app:navigationIcon="@drawable/ic_baseline_menu_24" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
 
@@ -45,7 +42,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
+        android:background="@color/main_background"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         app:layout_constraintTop_toBottomOf="@+id/collapsing">
 
@@ -53,12 +50,17 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tabSelectedTextColor="@color/teal_200"
+            app:tabGravity="center"
+            app:tabIndicator="@drawable/tab_indicator"
+            app:tabIndicatorColor="@color/background"
+            app:tabIndicatorGravity="center"
+            app:tabIndicatorHeight="@dimen/_30sdp"
+            app:tabSelectedTextColor="@color/white"
             app:tabTextAppearance="@style/Tab"
-            app:tabTextColor="@color/white" />
+            app:tabTextColor="@color/gray" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"

@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.example.retromvvm.R
 import com.example.retromvvm.databinding.CategoryRowBinding
 import com.example.retromvvm.model.domain.Category
-import com.example.retromvvm.model.domain.CategoryName
 import com.example.retromvvm.ui.activities.CategoriesActivity
 import com.example.retromvvm.utils.Constants
 

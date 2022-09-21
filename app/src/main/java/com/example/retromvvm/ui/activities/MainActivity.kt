@@ -1,6 +1,7 @@
 package com.example.retromvvm.ui.activities
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = tabTitles[position]
         }.attach()
+
     }
 
     private fun initViewPager() {

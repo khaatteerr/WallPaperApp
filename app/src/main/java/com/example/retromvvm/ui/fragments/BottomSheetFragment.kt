@@ -38,7 +38,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
     private fun initButtons() {
 
-        val wallUrl = activity?.intent?.extras?.getString(Constants.DOWNLOADWALL)
+        val wallUrl = activity?.intent?.extras?.getString(Constants.DOWNLOAD_WALL)
         val imageName = activity?.intent?.extras?.getString(Constants.IMAGE_NAME)
 
         binding.downLoadFromNet.setOnClickListener {

@@ -40,26 +40,31 @@ class CategoriesActivity : AppCompatActivity() {
     private fun initRecyclerView() {
         val layoutManager = GridLayoutManager(this, 3)
         binding.wallCategoriesRecyclerView.layoutManager = layoutManager
-        binding.wallCategoriesRecyclerView.adapter = recyclerViewAdapter.withLoadStateHeaderAndFooter(
-            header = LoadStateAdapter{recyclerViewAdapter.retry()},
-            footer = LoadStateAdapter{recyclerViewAdapter.retry()}
-        )
-        recyclerViewAdapter.addLoadStateListener {loadState->
-            binding.wallCategoriesRecyclerView.isVisible = loadState.source.refresh is LoadState.NotLoading
+        binding.wallCategoriesRecyclerView.adapter =
+            recyclerViewAdapter.withLoadStateHeaderAndFooter(
+                header = LoadStateAdapter { recyclerViewAdapter.retry() },
+                footer = LoadStateAdapter { recyclerViewAdapter.retry() }
+            )
+        recyclerViewAdapter.addLoadStateListener { loadState ->
+            binding.wallCategoriesRecyclerView.isVisible =
+                loadState.source.refresh is LoadState.NotLoading
             binding.CategoryProgressBar.isVisible = loadState.source.refresh is LoadState.Loading
-            binding.CategoryRandomButtonRetry.isVisible = loadState.source.refresh is LoadState.Error
+            binding.CategoryRandomButtonRetry.isVisible =
+                loadState.source.refresh is LoadState.Error
             handelError(loadState)
 
-    }}
-        private fun handelError(loadStates: CombinedLoadStates) {
-            val errorState = loadStates.source.append as? LoadState.Error
-                ?: loadStates.source.prepend as? LoadState.Error
-
-            errorState?.let {
-                Toast.makeText(this,"${it.error}", Toast.LENGTH_LONG).show()
-            }
-
         }
+    }
+
+    private fun handelError(loadStates: CombinedLoadStates) {
+        val errorState = loadStates.source.append as? LoadState.Error
+            ?: loadStates.source.prepend as? LoadState.Error
+
+        errorState?.let {
+            Toast.makeText(this, "${it.error}", Toast.LENGTH_LONG).show()
+        }
+
+    }
 
     private fun initViewModel() {
         val categoryName = intent.extras?.getString(Constants.CATEGORY)

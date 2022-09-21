@@ -21,7 +21,7 @@ class LoadStateViewHolder (
 
     fun bind(loadState: LoadState){
         if (loadState is LoadState.Error){
-             binding.errorMsg.text = loadState.error.localizedMessage
+             binding.errorMsg.text = "please try again later"
         }
         binding.progressBar.isVisible = loadState is LoadState.Loading
         binding.retryButtonItem.isVisible = loadState !is LoadState.Loading

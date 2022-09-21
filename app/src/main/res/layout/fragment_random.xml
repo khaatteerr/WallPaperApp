@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black"
+    android:background="@color/main_background"
     tools:context=".ui.activities.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -26,8 +26,8 @@
         android:id="@+id/randomButtonRetry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="retry"
+        android:backgroundTint="@color/whiteBlue"
+        android:text="@string/retry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
