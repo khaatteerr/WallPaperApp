@@ -76,7 +76,7 @@ class SearchActivity : AppCompatActivity() {
         observable.subscribe(
             { t ->
 
-                lifecycleScope.launch {
+                lifecycleScope.launch(Dispatchers.IO) {
                     viewModel.searchFromApi(t).collect {
                         recyclerViewAdapter.submitData(it)
                     }

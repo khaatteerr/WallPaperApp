@@ -1,14 +1,9 @@
 package com.example.retromvvm.ui.activities
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SearchView
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.retromvvm.R
 import com.example.retromvvm.databinding.ActivityMainBinding
@@ -17,6 +12,7 @@ import com.example.retromvvm.ui.fragments.PopularFragment
 import com.example.retromvvm.ui.fragments.HomeFragment
 import com.example.retromvvm.ui.fragments.RandomFragment
 import com.example.retromvvm.ui.fragments.adapter.ViewPagerAdapter
+import com.example.retromvvm.utils.Constants
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -27,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private val fragments =
         listOf(HomeFragment(), PopularFragment(), RandomFragment(), CategoriesFragment())
 
-    private val tabTitles = listOf("Home", "Popular", "Random", "Categories")
+    private val tabTitles = listOf(Constants.HOME, Constants.POPULAR, Constants.RANDOM, Constants.CATEGORY_NAME)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

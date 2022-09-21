@@ -1,10 +1,8 @@
 package com.example.retromvvm.ui.fragments
 
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.retromvvm.databinding.FragmentHomeBinding

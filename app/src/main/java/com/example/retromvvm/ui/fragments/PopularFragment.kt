@@ -47,14 +47,6 @@ class PopularFragment : BaseFragment<FragmentPopularBinding>(
             recyclerViewAdapter.retry()
         }
     }
-//    private fun handelError(loadStates: CombinedLoadStates) {
-//        val errorState = loadStates.source.append as? LoadState.Error
-//            ?: loadStates.source.prepend as? LoadState.Error
-//
-//        errorState?.let {
-//            Toast.makeText(context,"${it.error}", Toast.LENGTH_LONG).show()
-//        }
-//
-//    }
+
 
 }

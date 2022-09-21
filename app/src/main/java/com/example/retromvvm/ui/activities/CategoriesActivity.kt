@@ -17,6 +17,7 @@ import com.example.retromvvm.model.paging.loadingState.LoadStateAdapter
 import com.example.retromvvm.recyclerView.RecyclerViewAdapter
 import com.example.retromvvm.utils.Constants
 import com.example.retromvvm.viewModels.CategoriesViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CategoriesActivity : AppCompatActivity() {
@@ -68,7 +69,7 @@ class CategoriesActivity : AppCompatActivity() {
 
     private fun initViewModel() {
         val categoryName = intent.extras?.getString(Constants.CATEGORY)
-        lifecycleScope.launch {
+        lifecycleScope.launch(Dispatchers.IO) {
             viewModel.loadCategoryToRandom(categoryName.toString()).collect {
                 recyclerViewAdapter.submitData(it)
             }
