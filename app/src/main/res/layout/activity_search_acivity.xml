@@ -18,6 +18,7 @@
         android:padding="@dimen/_10sdp"
         android:background="@drawable/search_style"
         android:inputType="textPersonName"
+        android:fontFamily="@font/actor"
         android:hint="@string/search"
         android:layout_marginTop="@dimen/_10sdp"
         android:textSize="@dimen/_15sdp"
@@ -41,15 +42,16 @@
         app:layout_constraintTop_toBottomOf="@+id/searchEditText"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ProgressBar
+    <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/searchProgressBar"
-        style="?android:attr/progressBarStyle"
+        style="@style/SpinKitView.Large.Pulse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:SpinKit_Color="@color/background"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

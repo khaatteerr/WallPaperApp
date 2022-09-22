@@ -77,4 +77,8 @@ dependencies {
 
     //Google ads
     implementation 'com.google.android.gms:play-services-ads:21.2.0'
+
+    //progress bar
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
  }

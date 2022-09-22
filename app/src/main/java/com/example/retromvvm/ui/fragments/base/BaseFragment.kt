@@ -10,6 +10,7 @@ import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.viewbinding.ViewBinding
 import com.example.retromvvm.recyclerView.RecyclerViewAdapter
+
 import java.lang.IllegalArgumentException
 
 abstract class BaseFragment<VB : ViewBinding>(
@@ -21,7 +22,7 @@ abstract class BaseFragment<VB : ViewBinding>(
     val binding: VB
         get() = _binding as VB
 
-      var recyclerViewAdapter = RecyclerViewAdapter()
+    lateinit var recyclerViewAdapter: RecyclerViewAdapter
 
 
     override fun onCreateView(
@@ -34,25 +35,27 @@ abstract class BaseFragment<VB : ViewBinding>(
             throw IllegalArgumentException("binding cannot be null")
         }
 
+        recyclerViewAdapter = RecyclerViewAdapter( )
         initViewModel()
         recyclerAdapter()
-        loadBannerAd()
-        return binding.root
+         return binding.root
     }
 
     abstract fun initViewModel()
     abstract fun recyclerAdapter()
-    abstract fun loadBannerAd()
+
 
     fun handelError(loadStates: CombinedLoadStates) {
         val errorState = loadStates.source.append as? LoadState.Error
             ?: loadStates.source.prepend as? LoadState.Error
 
         errorState?.let {
-            Toast.makeText(context, "${it.error}", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "try again later", Toast.LENGTH_LONG).show()
         }
 
     }
+
+
 
 
 }

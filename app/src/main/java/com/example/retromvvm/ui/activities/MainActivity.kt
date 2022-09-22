@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.retromvvm.R
 import com.example.retromvvm.databinding.ActivityMainBinding
 import com.example.retromvvm.ui.fragments.CategoriesFragment
@@ -13,6 +15,7 @@ import com.example.retromvvm.ui.fragments.HomeFragment
 import com.example.retromvvm.ui.fragments.RandomFragment
 import com.example.retromvvm.ui.fragments.adapter.ViewPagerAdapter
 import com.example.retromvvm.utils.Constants
+import com.google.android.gms.ads.AdRequest
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -33,7 +36,12 @@ class MainActivity : AppCompatActivity() {
         initToolBar()
         initViewPager()
         initTabLayout()
+        loadAd()
+    }
 
+    private fun loadAd(){
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
     }
 
 
@@ -55,6 +63,8 @@ class MainActivity : AppCompatActivity() {
         binding.toolbar.title = "Wallpapers"
         setSupportActionBar(binding.toolbar)
     }
+
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         menuInflater.inflate(R.menu.pop_up_menu, menu)
@@ -67,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             R.id.search -> {
                 startActivity(Intent(this,SearchActivity::class.java))
              }
-        }
+         }
         return super.onOptionsItemSelected(item)
     }
 

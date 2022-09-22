@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.RetroMVVM" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.RetroMVVM" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/main_background</item>
         <item name="colorPrimaryVariant">@color/main_background</item>

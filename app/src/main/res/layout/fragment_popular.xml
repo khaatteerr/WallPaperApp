@@ -11,43 +11,35 @@
         android:id="@+id/wallRecyclerViewPopular"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/adView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
+
+    <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/popularProgressBar"
-        style="?android:attr/progressBarStyle"
+        style="@style/SpinKitView.Large.Pulse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="167dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:SpinKit_Color="@color/background"/>
 
     <Button
         android:id="@+id/popularButtonRetry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="151dp"
-        android:layout_marginBottom="1dp"
-        android:backgroundTint="@color/whiteBlue"
+         android:backgroundTint="@color/whiteBlue"
         android:text="@string/retry"
-        app:layout_constraintBottom_toBottomOf="@+id/popularProgressBar"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        android:fontFamily="@font/actor"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-    </com.google.android.gms.ads.AdView>
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

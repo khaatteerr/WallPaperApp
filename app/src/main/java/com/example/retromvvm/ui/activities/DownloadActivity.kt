@@ -1,7 +1,9 @@
 package com.example.retromvvm.ui.activities
 
+import android.app.Activity
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toDrawable
 import com.bumptech.glide.Glide
@@ -31,6 +33,7 @@ class DownloadActivity : AppCompatActivity() {
 
 
     }
+
 
     private fun loadWall() {
 

@@ -17,6 +17,7 @@ import com.example.retromvvm.model.paging.loadingState.LoadStateAdapter
 import com.example.retromvvm.recyclerView.RecyclerViewAdapter
 import com.example.retromvvm.utils.Constants
 import com.example.retromvvm.viewModels.CategoriesViewModel
+import com.google.android.gms.ads.AdRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -34,7 +35,7 @@ class CategoriesActivity : AppCompatActivity() {
         initRecyclerView()
         initViewModel()
         supportActionBar?.title = intent.extras?.getString(Constants.CATEGORY)
-
+        loadAd()
     }
 
 
@@ -88,5 +89,10 @@ class CategoriesActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun loadAd(){
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
     }
 }

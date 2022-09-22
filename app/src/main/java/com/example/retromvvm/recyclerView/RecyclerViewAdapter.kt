@@ -18,8 +18,10 @@ import com.example.retromvvm.utils.BlurHashDecoder
 import com.example.retromvvm.utils.Constants
 
 
-class RecyclerViewAdapter :
+class RecyclerViewAdapter  :
     PagingDataAdapter<Data, RecyclerViewAdapter.MyViewHolder>(DiffUtilCallBack()) {
+
+
     override fun onBindViewHolder(holder: RecyclerViewAdapter.MyViewHolder, position: Int) {
 
 
@@ -49,15 +51,9 @@ class RecyclerViewAdapter :
                 .load(data.smallImageUrl)
                 .placeholder(blurHashAsDrawable)
                 .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .skipMemoryCache(true)
-                .transition(BitmapTransitionOptions.withCrossFade(300))
+                .transition(BitmapTransitionOptions.withCrossFade(50))
                 .error(R.drawable.error_photo)
                 .into(binding.imageView)
-
-
-
-
 
 
             itemView.setOnClickListener {
@@ -65,6 +61,8 @@ class RecyclerViewAdapter :
                 intent.putExtra(Constants.DOWNLOAD_WALL, data.fullImageUrl)
                 intent.putExtra(Constants.IMAGE_NAME, data.blurHash)
                 it.context.startActivity(intent)
+
+
             }
         }
 

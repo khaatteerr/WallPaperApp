@@ -21,7 +21,7 @@ class PopularFragment : BaseFragment<FragmentPopularBinding>(
     private val viewModel: PopularViewModel by viewModels()
 
     override fun initViewModel() {
-        lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch  {
             viewModel.popularPage.collectLatest {
                 recyclerViewAdapter.submitData(it)
             }
@@ -48,10 +48,7 @@ class PopularFragment : BaseFragment<FragmentPopularBinding>(
         }
     }
 
-    override fun loadBannerAd() {
-        val adRequest = AdRequest.Builder().build()
-        binding.adView.loadAd(adRequest)
-    }
+
 
 
 }

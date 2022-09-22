@@ -23,8 +23,7 @@ class CategoriesFragment : Fragment() {
     ): View {
         binding = FragmentCategoriesBinding.inflate(inflater, container, false)
         recyclerAdapter()
-         val adRequest = AdRequest.Builder().build()
-        binding.adView.loadAd(adRequest)
+
         return binding.root
     }
 

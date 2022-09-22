@@ -47,10 +47,7 @@ class RandomFragment : BaseFragment<FragmentRandomBinding>(
         }
     }
 
-    override fun loadBannerAd() {
-        val adRequest = AdRequest.Builder().build()
-        binding.adView.loadAd(adRequest)
-    }
+
 
 
 }

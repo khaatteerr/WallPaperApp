@@ -1,19 +1,22 @@
 package com.example.retromvvm.ui.fragments
 
 
+import android.graphics.drawable.Drawable
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.core.content.ContextCompat.getDrawable
+import androidx.core.content.res.TypedArrayUtils.getDrawable
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.retromvvm.R
 import com.example.retromvvm.databinding.FragmentHomeBinding
 import com.example.retromvvm.model.paging.loadingState.LoadStateAdapter
 import com.example.retromvvm.ui.fragments.base.BaseFragment
 import com.example.retromvvm.viewModels.HomeViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import com.google.android.gms.ads.AdRequest
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(
@@ -23,17 +26,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
     private val viewModel: HomeViewModel by viewModels()
 
     override fun initViewModel() {
-        lifecycleScope.launch(Dispatchers.IO)  {
+        lifecycleScope.launch   {
             viewModel.homePage.collectLatest {
                 recyclerViewAdapter.submitData(it)
             }
         }
     }
 
-    override fun loadBannerAd() {
-        val adRequest = AdRequest.Builder().build()
-        binding.adView.loadAd(adRequest)
-    }
+
 
     override fun recyclerAdapter() {
         val layoutManager = GridLayoutManager(context, 3)
@@ -52,6 +52,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
             recyclerViewAdapter.retry()
         }
 
-    }
+     }
 
 }

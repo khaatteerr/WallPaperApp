@@ -26,17 +26,18 @@
             tools:ignore="ContentDescription"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/categoryTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/Categories"
-            android:textSize="@dimen/_15ssp"
-            android:textStyle="bold"
-            android:textColor="@color/white">
+    <TextView
+        android:id="@+id/categoryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/archivo_black"
+        android:text="@string/Categories"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold">
 
-        </TextView>
+    </TextView>
 
     </androidx.cardview.widget.CardView>
 
