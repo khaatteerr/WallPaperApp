@@ -36,14 +36,12 @@ class CategoriesAdapter(private val category: List<Category>) :
                 .error(R.color.babyBlue)
                 .into(categoryImageView)
         }
-        holder.itemView.
-            setOnClickListener {
-                val intent = Intent(it.context,CategoriesActivity::class.java)
-                intent.putExtra(Constants.CATEGORY,currentCategory.categoryName)
-                it.context.startActivity(intent)
-            }
+        holder.itemView.setOnClickListener {
+            val intent = Intent(it.context, CategoriesActivity::class.java)
+            intent.putExtra(Constants.CATEGORY, currentCategory.categoryName)
+            it.context.startActivity(intent)
         }
-
+    }
 
 
     override fun getItemCount() = category.size

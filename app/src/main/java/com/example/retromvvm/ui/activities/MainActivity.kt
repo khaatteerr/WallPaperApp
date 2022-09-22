@@ -16,11 +16,11 @@ import com.example.retromvvm.utils.Constants
 import com.google.android.material.tabs.TabLayoutMediator
 
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
-    private val fragments =
+     private val fragments =
         listOf(HomeFragment(), PopularFragment(), RandomFragment(), CategoriesFragment())
 
     private val tabTitles = listOf(Constants.HOME, Constants.POPULAR, Constants.RANDOM, Constants.CATEGORY_NAME)
@@ -34,8 +34,9 @@ class MainActivity : AppCompatActivity() {
         initViewPager()
         initTabLayout()
 
-
     }
+
+
 
     private fun initTabLayout() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->

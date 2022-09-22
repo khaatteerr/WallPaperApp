@@ -33,10 +33,10 @@ class CategoriesActivity : AppCompatActivity() {
 
         initRecyclerView()
         initViewModel()
-
         supportActionBar?.title = intent.extras?.getString(Constants.CATEGORY)
 
     }
+
 
     private fun initRecyclerView() {
         val layoutManager = GridLayoutManager(this, 3)

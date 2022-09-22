@@ -5,12 +5,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toDrawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.retromvvm.R
 import com.example.retromvvm.databinding.ActivityDownloadBinding
 import com.example.retromvvm.ui.fragments.BottomSheetFragment
 import com.example.retromvvm.utils.BlurHashDecoder
 import com.example.retromvvm.utils.Constants
-
 
 
 class DownloadActivity : AppCompatActivity() {
@@ -37,29 +37,32 @@ class DownloadActivity : AppCompatActivity() {
 
         val wallUrl = intent.extras?.getString(Constants.DOWNLOAD_WALL)
         val blurHash = intent.extras?.getString(Constants.IMAGE_NAME)
-       val blurHashAsDrawable = BlurHashDecoder.decode(blurHash)
+        val blurHashAsDrawable = BlurHashDecoder.decode(blurHash)
         Glide.with(this)
             .asBitmap()
             .load(wallUrl)
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .skipMemoryCache(true)
             .centerCrop()
-            .placeholder( blurHashAsDrawable?.toDrawable(this.resources) )
+            .placeholder(blurHashAsDrawable?.toDrawable(this.resources))
             .error(R.drawable.bluredimage)
             .into(binding.downloadImageView)
 
         binding.constraintDownload.background = BitmapDrawable(this.resources, blurHashAsDrawable)
 
     }
-    private fun addCallBacks(){
+
+    private fun addCallBacks() {
         binding.backButton.setOnClickListener {
             finish()
         }
     }
 
-    private fun bottomSheet(){
+    private fun bottomSheet() {
 
         val bottomSheetFragment = BottomSheetFragment()
         binding.downloadButton.setOnClickListener {
-            bottomSheetFragment.show(supportFragmentManager,"bottomSheetDialog")
+            bottomSheetFragment.show(supportFragmentManager, "bottomSheetDialog")
         }
 
     }

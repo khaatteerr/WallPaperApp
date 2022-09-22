@@ -4,7 +4,6 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
-import com.example.retromvvm.R
 import com.example.retromvvm.model.domain.Data
 import kotlin.math.PI
 import kotlin.math.cos
@@ -13,14 +12,17 @@ import kotlin.math.withSign
 
 
 object BlurHashDecoder {
-    fun blurHashBitmap(resources: Resources, attachment: Data? ): BitmapDrawable {
-        return BitmapDrawable(resources,
-            decode(attachment?.blurHash,
-                30,60)
+    fun blurHashBitmap(resources: Resources, attachment: Data?): BitmapDrawable {
+        return BitmapDrawable(
+            resources,
+            decode(
+                attachment?.blurHash,
+                30, 60
+            )
         )
     }
 
-    fun decode(blurHash: String?, width: Int?=30, height: Int?=60, punch: Float = 1f): Bitmap? {
+    fun decode(blurHash: String?, width: Int? = 30, height: Int? = 60, punch: Float = 1f): Bitmap? {
         if (blurHash == null || width == null || height == null || blurHash.length < 6) {
             return null
         }
@@ -108,7 +110,8 @@ object BlurHashDecoder {
                         b += color[2] * basis
                     }
                 }
-                imageArray[x + width * y] = Color.rgb(linearToSrgb(r), linearToSrgb(g), linearToSrgb(b))
+                imageArray[x + width * y] =
+                    Color.rgb(linearToSrgb(r), linearToSrgb(g), linearToSrgb(b))
             }
         }
         return Bitmap.createBitmap(imageArray, width, height, Bitmap.Config.ARGB_8888)

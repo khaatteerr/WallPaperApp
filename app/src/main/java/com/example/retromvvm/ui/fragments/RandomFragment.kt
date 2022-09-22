@@ -9,6 +9,7 @@ import com.example.retromvvm.databinding.FragmentRandomBinding
 import com.example.retromvvm.model.paging.loadingState.LoadStateAdapter
 import com.example.retromvvm.ui.fragments.base.BaseFragment
 import com.example.retromvvm.viewModels.RandomViewModel
+import com.google.android.gms.ads.AdRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -44,6 +45,11 @@ class RandomFragment : BaseFragment<FragmentRandomBinding>(
         binding.randomButtonRetry.setOnClickListener {
             recyclerViewAdapter.retry()
         }
+    }
+
+    override fun loadBannerAd() {
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
     }
 
 
