@@ -43,7 +43,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         val imageName = activity?.intent?.extras?.getString(Constants.IMAGE_NAME)
 
         binding.downLoadFromNet.setOnClickListener {
-            downloadImageFromWeb(wallUrl.toString(), imageName?.split("-").toString())
+            downloadImageFromWeb(wallUrl.toString(),"wool")
         }
         binding.setAsBackground.setOnClickListener {
             setAsBackground(Constants.BackGroundState.backGround)
@@ -63,13 +63,13 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
             val request = DownloadManager.Request(downloadUri).apply {
                 setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
-                    .setMimeType("images/jpeg")
+                    .setMimeType("image/*")
                     .setAllowedOverRoaming(false)
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
                     .setTitle(filename)
                     .setDestinationInExternalPublicDir(
                         Environment.DIRECTORY_PICTURES,
-                        File.separator + filename + ".jpg",
+                        File.separator +  filename  + ".jpg",
                     )
 
             }
