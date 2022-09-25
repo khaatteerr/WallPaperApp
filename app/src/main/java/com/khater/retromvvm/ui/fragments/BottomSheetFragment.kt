@@ -14,7 +14,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.khater.retromvvm.R
 import com.khater.retromvvm.databinding.BottomSheetBinding
-
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.imageview.ShapeableImageView
 import com.khater.retromvvm.utils.Constants
@@ -40,10 +39,9 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     private fun initButtons() {
 
         val wallUrl = activity?.intent?.extras?.getString(Constants.DOWNLOAD_WALL)
-        val imageName = activity?.intent?.extras?.getString(Constants.IMAGE_NAME)
 
         binding.downLoadFromNet.setOnClickListener {
-            downloadImageFromWeb(wallUrl.toString(),"wool")
+            downloadImageFromWeb(wallUrl.toString())
         }
         binding.setAsBackground.setOnClickListener {
             setAsBackground(Constants.BackGroundState.backGround)
@@ -54,7 +52,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     }
 
 
-    private fun downloadImageFromWeb(url: String, filename: String) {
+    private fun downloadImageFromWeb(url: String) {
         try {
             val downloadManager =
                 context?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
@@ -66,10 +64,10 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                     .setMimeType("image/*")
                     .setAllowedOverRoaming(false)
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                    .setTitle(filename)
+                    .setTitle("wool")
                     .setDestinationInExternalPublicDir(
                         Environment.DIRECTORY_PICTURES,
-                        File.separator +  filename  + ".jpg",
+                        File.separator +  "wool"  + ".jpg",
                     )
 
             }
