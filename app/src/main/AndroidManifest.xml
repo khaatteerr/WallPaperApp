@@ -12,26 +12,39 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:hardwareAccelerated="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/Theme.RetroMVVM"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.activities.SplashScreen"
+            android:exported="true"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6998462150304370~4962092886"/>
+            android:value="ca-app-pub-6998462150304370~4962092886" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:supportsRtl="false"
-
             android:name=".ui.activities.SearchActivity"
+            android:exported="false"
             android:screenOrientation="portrait"
-            android:exported="false">
+            android:supportsRtl="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -39,32 +52,20 @@
         <activity
             android:name=".ui.activities.DownloadActivity"
             android:exported="false"
-            android:supportsRtl="false"
-
             android:screenOrientation="portrait"
-            />
+            android:supportsRtl="false" />
         <activity
             android:name=".ui.activities.CategoriesActivity"
             android:exported="false"
-            android:supportsRtl="false"
-
             android:screenOrientation="portrait"
-            />
+            android:supportsRtl="false" />
         <activity
             android:name=".ui.activities.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:supportsRtl="false"
-
             android:theme="@style/Theme.RetroMVVM.NoActionbar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>
