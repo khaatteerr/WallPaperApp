@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
  import androidx.appcompat.app.AppCompatActivity
- import com.khater.retromvvm.R
+import androidx.navigation.Navigation
+import com.khater.retromvvm.R
 import com.khater.retromvvm.databinding.ActivityMainBinding
 
 import com.google.android.gms.ads.AdRequest
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.khater.retromvvm.ui.fragments.CategoriesFragment
 import com.khater.retromvvm.ui.fragments.HomeFragment
@@ -31,53 +33,54 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initToolBar()
-        initViewPager()
-        initTabLayout()
-        loadAd()
+//        initToolBar()
+//        initViewPager()
+//        initTabLayout()
+//        loadAd()
     }
 
-    private fun loadAd(){
-        val adRequest = AdRequest.Builder().build()
-        binding.adView.loadAd(adRequest)
-    }
+//    private fun loadAd(){
+//        val adRequest = AdRequest.Builder().build()
+//        binding.adView.loadAd(adRequest)
+//    }
 
 
 
-    private fun initTabLayout() {
-        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            tab.text = tabTitles[position]
-        }.attach()
+//    private fun initTabLayout() {
+//         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+//            tab.text = tabTitles[position]
+//        }.attach()
+//
+//    }
 
-    }
-
-    private fun initViewPager() {
-        val pagerAdapter = ViewPagerAdapter(this, fragments)
-        binding.viewPager.adapter = pagerAdapter
-        binding.viewPager.isUserInputEnabled = false
-    }
-
-    private fun initToolBar() {
-        binding.toolbar.title = "Wallpapers"
-        setSupportActionBar(binding.toolbar)
-    }
-
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
-        menuInflater.inflate(R.menu.pop_up_menu, menu)
-        return true
-    }
+//    private fun initViewPager() {
+//        val pagerAdapter = ViewPagerAdapter(this, fragments)
+//        binding.viewPager.adapter = pagerAdapter
+//        binding.viewPager.isUserInputEnabled = false
+//    }
+//
+//    private fun initToolBar() {
+//        binding.toolbar.title = "Wallpapers"
+//        setSupportActionBar(binding.toolbar)
+//    }
 
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.search -> {
-                startActivity(Intent(this,SearchActivity::class.java))
-             }
-         }
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//
+//        menuInflater.inflate(R.menu.pop_up_menu, menu)
+//        return true
+//    }
+//
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.search -> {
+//
+//           //     startActivity(Intent(this,SearchActivity::class.java))
+//             }
+//         }
+//        return super.onOptionsItemSelected(item)
+//    }
 
 
 }

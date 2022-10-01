@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -30,7 +31,7 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
-        viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -80,5 +81,10 @@ dependencies {
 
     //progress bar
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+    def nav_version = "2.5.2"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
  }

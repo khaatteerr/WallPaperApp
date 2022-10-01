@@ -1,24 +1,24 @@
 package com.khater.retromvvm.recyclerView
 
-import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
- import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
+import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
 import com.khater.retromvvm.R
 import com.khater.retromvvm.databinding.ItemRecyclerViewBinding
 import com.khater.retromvvm.model.domain.Data
-import com.khater.retromvvm.ui.activities.DownloadActivity
 import com.khater.retromvvm.utils.BlurHashDecoder
 import com.khater.retromvvm.utils.Constants
 
 
-class RecyclerViewAdapter  :
-    PagingDataAdapter< Data, RecyclerViewAdapter.MyViewHolder>(DiffUtilCallBack()) {
+class RecyclerViewAdapter(private val navigationId: Int?) :
+    PagingDataAdapter<Data, RecyclerViewAdapter.MyViewHolder>(DiffUtilCallBack()) {
 
 
     override fun onBindViewHolder(holder: RecyclerViewAdapter.MyViewHolder, position: Int) {
@@ -55,25 +55,53 @@ class RecyclerViewAdapter  :
                 .into(binding.imageView)
 
 
-            itemView.setOnClickListener {
-                val intent = Intent(it.context, DownloadActivity::class.java)
-                intent.putExtra(Constants.DOWNLOAD_WALL, data.fullImageUrl)
-                intent.putExtra(Constants.IMAGE_NAME, data.blurHash)
-                it.context.startActivity(intent)
 
+            itemView.setOnClickListener { v ->
+                val bundle = Bundle()
+                bundle.putString("urlImage", data.fullImageUrl)
+                bundle.putString("blurHashString", data.blurHash)
+                when (navigationId) {
+
+
+                    Constants.NavigationIntent.FromSearchToDownload -> loadNavigation(
+                        v,
+                        bundle,
+                        R.id.action_searchFragment_to_downloadFragment
+                    )
+
+                    Constants.NavigationIntent.FromMainToDownload -> loadNavigation(
+                        v,
+                        bundle,
+                        R.id.action_testFragment_to_downloadFragment
+                    )
+
+                    Constants.NavigationIntent.FromCategoryToDownload -> loadNavigation(
+                        v,
+                        bundle,
+                        R.id.action_specificCategoryFragment_to_downloadFragment
+                    )
+
+                }
 
             }
+
+
         }
 
     }
 
-    class DiffUtilCallBack : DiffUtil.ItemCallback< Data>() {
-        override fun areItemsTheSame(oldItem: Data, newItem:  Data): Boolean {
+    private fun loadNavigation(v: View, bundle: Bundle, id: Int) {
+        Navigation.findNavController(v)
+            .navigate(id, bundle)
+    }
+
+    class DiffUtilCallBack : DiffUtil.ItemCallback<Data>() {
+        override fun areItemsTheSame(oldItem: Data, newItem: Data): Boolean {
             return oldItem.blurHash == newItem.blurHash
 
         }
 
-        override fun areContentsTheSame(oldItem:  Data, newItem:  Data): Boolean {
+        override fun areContentsTheSame(oldItem: Data, newItem: Data): Boolean {
             return oldItem == newItem
 
         }

@@ -8,9 +8,11 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import com.khater.retromvvm.R
 import com.khater.retromvvm.databinding.BottomSheetBinding
@@ -21,7 +23,7 @@ import java.io.File
 import java.io.IOException
 
 
-class BottomSheetFragment : BottomSheetDialogFragment() {
+class BottomSheetFragment(private val wallUrl :String) : BottomSheetDialogFragment() {
 
     private lateinit var binding: BottomSheetBinding
 
@@ -38,7 +40,9 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
     private fun initButtons() {
 
-        val wallUrl = activity?.intent?.extras?.getString(Constants.DOWNLOAD_WALL)
+      //  val wallUrl = activity?.intent?.extras?.getString(Constants.DOWNLOAD_WALL)
+//        val wallUrl = arguments?.getString("urlImage")
+//        Log.d("aavklebvoiebav", "initButtons: $wallUrl")
 
         binding.downLoadFromNet.setOnClickListener {
             downloadImageFromWeb(wallUrl.toString())
@@ -67,7 +71,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                     .setTitle("wool")
                     .setDestinationInExternalPublicDir(
                         Environment.DIRECTORY_PICTURES,
-                        File.separator +  "wool"  + ".jpg",
+                        File.separator + "wool" + ".jpg",
                     )
 
             }

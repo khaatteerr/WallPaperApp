@@ -15,6 +15,7 @@ import com.khater.retromvvm.utils.ApiListCategory
 class CategoriesFragment : Fragment() {
     private lateinit var binding: FragmentCategoriesBinding
 
+    private lateinit var recyclerViewAdapter :CategoriesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +30,7 @@ class CategoriesFragment : Fragment() {
 
     private fun recyclerAdapter() {
         val layoutManager = GridLayoutManager(context, 2)
-        val recyclerViewAdapter = CategoriesAdapter(ApiListCategory.list)
+        recyclerViewAdapter = CategoriesAdapter(ApiListCategory.list)
         binding.categoriesRecyclerView.layoutManager = layoutManager
         binding.categoriesRecyclerView.adapter = recyclerViewAdapter
     }

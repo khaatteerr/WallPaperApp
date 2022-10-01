@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+ >
 
+    <data>
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/main_background"
-        tools:context=".ui.activities.MainActivity">
-
+         >
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/wallRecyclerView"
+            android:id="@+id/wallCategoriesRecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/adView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <com.github.ybq.android.spinkit.SpinKitView
-            android:id="@+id/progressBar"
+            android:id="@+id/CategoryProgressBar"
             style="@style/SpinKitView.Large.Pulse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,18 +34,31 @@
             app:layout_constraintTop_toTopOf="parent"
             app:SpinKit_Color="@color/background" />
 
-
         <Button
-            android:id="@+id/buttonRetry"
+            android:id="@+id/CategoryButtonRetry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/whiteBlue"
             android:text="@string/retry"
             android:fontFamily="@font/actor"
+            android:backgroundTint="@color/whiteBlue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-6998462150304370/8709766208"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </com.google.android.gms.ads.AdView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

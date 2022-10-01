@@ -1,38 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/errorMsg"
+    <data>
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/actor"
-        android:layout_marginStart="@dimen/_5sdp"
-        android:textColor="@color/white" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/retryButtonItem"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fontFamily="@font/actor"
-        android:backgroundTint="@color/whiteBlue"
-        android:text="@string/retry"
-        android:visibility="visible" />
+        <TextView
+            android:id="@+id/errorMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/actor"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/white" />
 
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/progressBar"
-        style="@style/SpinKitView.Large.Pulse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:SpinKit_Color="@color/background"/>
+        <Button
+            android:id="@+id/retryButtonItem"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/actor"
+            android:backgroundTint="@color/whiteBlue"
+            android:text="@string/retry"
+            android:visibility="visible" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/progressBar"
+            style="@style/SpinKitView.Large.Pulse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:SpinKit_Color="@color/background" />
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

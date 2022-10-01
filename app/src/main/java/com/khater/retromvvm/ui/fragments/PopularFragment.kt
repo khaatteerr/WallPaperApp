@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.khater.retromvvm.databinding.FragmentPopularBinding
 
  import com.khater.retromvvm.model.paging.loadingState.LoadStateAdapter
+import com.khater.retromvvm.recyclerView.RecyclerViewAdapter
 import com.khater.retromvvm.ui.fragments.base.BaseFragment
+import com.khater.retromvvm.utils.Constants
 import com.khater.retromvvm.viewModels.PopularViewModel
  import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -47,7 +49,9 @@ class PopularFragment : BaseFragment<FragmentPopularBinding>(
         }
     }
 
-
+    override var recyclerViewAdapter: RecyclerViewAdapter = RecyclerViewAdapter(
+        Constants.NavigationIntent.FromMainToDownload
+    )
 
 
 }

@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.khater.retromvvm.databinding.FragmentRandomBinding
 
 import com.khater.retromvvm.model.paging.loadingState.LoadStateAdapter
+import com.khater.retromvvm.recyclerView.RecyclerViewAdapter
 import com.khater.retromvvm.ui.fragments.base.BaseFragment
+import com.khater.retromvvm.utils.Constants
 import com.khater.retromvvm.viewModels.RandomViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
@@ -47,7 +49,9 @@ class RandomFragment : BaseFragment<FragmentRandomBinding>(
         }
     }
 
-
+    override var recyclerViewAdapter: RecyclerViewAdapter = RecyclerViewAdapter(
+        Constants.NavigationIntent.FromMainToDownload
+    )
 
 
 }
