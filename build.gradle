@@ -4,7 +4,12 @@ buildscript {
         google()
         mavenCentral()
     }
+    dependencies {
+        def nav_version = "2.5.2"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+    }
 }
+
 
 plugins {
     id 'com.android.application' version '7.2.1' apply false

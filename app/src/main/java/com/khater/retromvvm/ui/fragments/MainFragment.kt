@@ -18,7 +18,7 @@ import com.khater.retromvvm.utils.Constants
 
 
 
-class TestFragment : Fragment()   {
+class MainFragment : Fragment()   {
     private lateinit var binding: FragmentTestBinding
     private val fragments =
         listOf(HomeFragment(), PopularFragment(), RandomFragment(), CategoriesFragment())
@@ -34,6 +34,7 @@ class TestFragment : Fragment()   {
         initViewPager()
         initTabLayout()
         initToolBar()
+
 
         return binding.root
     }

@@ -13,7 +13,7 @@ import com.khater.retromvvm.recyclerView.RecyclerViewAdapter
 
 import java.lang.IllegalArgumentException
 
-abstract class BaseFragment<VB : ViewBinding  >(
+abstract class BaseFragment<VB : ViewBinding>(
     private val bindingInflater: (inflater: LayoutInflater) -> VB
 ) : Fragment() {
 
@@ -23,11 +23,7 @@ abstract class BaseFragment<VB : ViewBinding  >(
         get() = _binding as VB
 
 
-
-
-    abstract  var recyclerViewAdapter: RecyclerViewAdapter
-
-
+    abstract var recyclerViewAdapter: RecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,7 +41,6 @@ abstract class BaseFragment<VB : ViewBinding  >(
         return binding.root
     }
 
-
     abstract fun initViewModel()
     abstract fun recyclerAdapter()
 
@@ -59,6 +54,4 @@ abstract class BaseFragment<VB : ViewBinding  >(
         }
 
     }
-
-
 }

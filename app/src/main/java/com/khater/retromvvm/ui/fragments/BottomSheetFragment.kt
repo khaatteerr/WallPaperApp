@@ -8,11 +8,9 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import com.khater.retromvvm.R
 import com.khater.retromvvm.databinding.BottomSheetBinding
@@ -40,12 +38,9 @@ class BottomSheetFragment(private val wallUrl :String) : BottomSheetDialogFragme
 
     private fun initButtons() {
 
-      //  val wallUrl = activity?.intent?.extras?.getString(Constants.DOWNLOAD_WALL)
-//        val wallUrl = arguments?.getString("urlImage")
-//        Log.d("aavklebvoiebav", "initButtons: $wallUrl")
 
         binding.downLoadFromNet.setOnClickListener {
-            downloadImageFromWeb(wallUrl.toString())
+            downloadImageFromWeb(wallUrl)
         }
         binding.setAsBackground.setOnClickListener {
             setAsBackground(Constants.BackGroundState.backGround)

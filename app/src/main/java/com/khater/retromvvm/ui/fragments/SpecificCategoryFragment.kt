@@ -4,6 +4,7 @@ package com.khater.retromvvm.ui.fragments
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.gms.ads.AdRequest
@@ -17,18 +18,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class SpecificCategoryFragment : BaseFragment<FragmentSpecificCategoryBinding> (
+class SpecificCategoryFragment : BaseFragment<FragmentSpecificCategoryBinding>(
     FragmentSpecificCategoryBinding::inflate
-        ) {
+) {
 
     private val viewModel: CategoriesViewModel by viewModels()
+    private val args: SpecificCategoryFragmentArgs by navArgs()
 
 
     override fun initViewModel() {
-         val categoryName = arguments?.getString(Constants.CATEGORY)
+
 
         lifecycleScope.launch(Dispatchers.IO) {
-            viewModel.loadCategoryToRandom(categoryName.toString()).collect {
+            viewModel.loadCategoryToRandom(args.categoryName).collect {
                 recyclerViewAdapter.submitData(it)
             }
         }
@@ -40,8 +42,8 @@ class SpecificCategoryFragment : BaseFragment<FragmentSpecificCategoryBinding> (
         binding.wallCategoriesRecyclerView.layoutManager = layoutManager
         binding.wallCategoriesRecyclerView.adapter =
             recyclerViewAdapter.withLoadStateHeaderAndFooter(
-                header = LoadStateAdapter {  recyclerViewAdapter.retry()  },
-                footer = LoadStateAdapter {  recyclerViewAdapter.retry()  }
+                header = LoadStateAdapter { recyclerViewAdapter.retry() },
+                footer = LoadStateAdapter { recyclerViewAdapter.retry() }
             )
         recyclerViewAdapter.addLoadStateListener { loadState ->
             binding.wallCategoriesRecyclerView.isVisible =
@@ -55,8 +57,10 @@ class SpecificCategoryFragment : BaseFragment<FragmentSpecificCategoryBinding> (
         binding.CategoryButtonRetry.setOnClickListener {
             recyclerViewAdapter.retry()
         }
+        categoryName()
     }
-    private fun loadAd(){
+
+    private fun loadAd() {
         val adRequest = AdRequest.Builder().build()
         binding.adView.loadAd(adRequest)
     }
@@ -64,5 +68,8 @@ class SpecificCategoryFragment : BaseFragment<FragmentSpecificCategoryBinding> (
     override var recyclerViewAdapter: RecyclerViewAdapter = RecyclerViewAdapter(
         Constants.NavigationIntent.FromCategoryToDownload
     )
+    private fun categoryName(){
+        binding.categoryName.text = args.categoryName
+    }
 
 }

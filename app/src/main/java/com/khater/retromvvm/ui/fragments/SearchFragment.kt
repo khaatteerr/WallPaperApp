@@ -1,16 +1,10 @@
 package com.khater.retromvvm.ui.fragments
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.khater.retromvvm.databinding.FragmentSearchBinding
@@ -29,28 +23,28 @@ class SearchFragment :  BaseFragment<FragmentSearchBinding>(
 
 ) {
 
-     private val viewModel: SearchViewModel by viewModels()
+    val viewModel : SearchViewModel by viewModels()
 
-    override var recyclerViewAdapter: RecyclerViewAdapter= RecyclerViewAdapter(Constants.NavigationIntent.FromSearchToDownload)
+    override var recyclerViewAdapter : RecyclerViewAdapter = RecyclerViewAdapter(Constants.NavigationIntent.FromSearchToDownload)
 
-    override fun initViewModel() {
+    override fun initViewModel(){
 
-        val observable = Observable.create { emitter ->
+        Observable.create { emitter ->
             binding.searchEditText.doOnTextChanged { text, _, _, _ ->
                 emitter.onNext(text.toString())
             }
         }.debounce(500, TimeUnit.MILLISECONDS)
-        observable.subscribe(
-            { t ->
-                lifecycleScope.launch(Dispatchers.IO) {
-                    viewModel.searchFromApi(t).collect {
-                        recyclerViewAdapter.submitData(it)
+            .subscribe(
+                { t ->
+                    lifecycleScope.launch(Dispatchers.IO) {
+                        viewModel.searchFromApi(t).collect {
+                            recyclerViewAdapter.submitData(it)
+                        }
                     }
+                }, { e ->
+                    Toast.makeText(context, "${e.message}", Toast.LENGTH_LONG).show()
                 }
-            }, { e ->
-                Toast.makeText(context, "${e.message}", Toast.LENGTH_LONG).show()
-            }
-        )
+            )
     }
 
     override fun recyclerAdapter() {

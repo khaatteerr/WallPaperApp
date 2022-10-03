@@ -7,7 +7,8 @@
 
     <fragment
         android:id="@+id/testFragment"
-        android:name="com.khater.retromvvm.ui.fragments.TestFragment"
+        android:name="com.khater.retromvvm.ui.fragments.MainFragment"
+        tools:layout="@layout/fragment_test"
         android:label="TestFragment" >
         <action
             android:id="@+id/action_testFragment_to_downloadFragment"
@@ -19,25 +20,31 @@
         <action
             android:id="@+id/action_testFragment_to_searchFragment"
             app:destination="@id/searchFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_testFragment_to_specificCategoryFragment"
             app:destination="@id/specificCategoryFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/downloadFragment"
+        tools:layout="@layout/fragment_download"
         android:name="com.khater.retromvvm.ui.fragments.DownloadFragment"
-        android:label="DownloadFragment" />
+        android:label="DownloadFragment" >
+        <argument
+            android:name="imageData"
+            app:argType="string[]" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.khater.retromvvm.ui.fragments.SearchFragment"
+        tools:layout="@layout/fragment_search"
         android:label="SearchFragment" >
         <action
             android:id="@+id/action_searchFragment_to_downloadFragment"
@@ -50,6 +57,7 @@
     <fragment
         android:id="@+id/specificCategoryFragment"
         android:name="com.khater.retromvvm.ui.fragments.SpecificCategoryFragment"
+        tools:layout="@layout/fragment_specific_category"
         android:label="SpecificCategoryFragment" >
         <action
             android:id="@+id/action_specificCategoryFragment_to_downloadFragment"
@@ -58,5 +66,8 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
     </fragment>
 </navigation>

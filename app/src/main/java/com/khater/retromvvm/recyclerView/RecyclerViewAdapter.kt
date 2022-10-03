@@ -1,6 +1,6 @@
 package com.khater.retromvvm.recyclerView
 
-import android.os.Bundle
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +13,9 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
 import com.khater.retromvvm.R
 import com.khater.retromvvm.databinding.ItemRecyclerViewBinding
 import com.khater.retromvvm.model.domain.Data
+import com.khater.retromvvm.ui.fragments.MainFragmentDirections
+import com.khater.retromvvm.ui.fragments.SearchFragmentDirections
+import com.khater.retromvvm.ui.fragments.SpecificCategoryFragmentDirections
 import com.khater.retromvvm.utils.BlurHashDecoder
 import com.khater.retromvvm.utils.Constants
 
@@ -54,32 +57,36 @@ class RecyclerViewAdapter(private val navigationId: Int?) :
                 .error(blurHashAsDrawable)
                 .into(binding.imageView)
 
-
+            val imageData = arrayOf(data.fullImageUrl.toString(), data.blurHash.toString())
 
             itemView.setOnClickListener { v ->
-                val bundle = Bundle()
-                bundle.putString("urlImage", data.fullImageUrl)
-                bundle.putString("blurHashString", data.blurHash)
+
                 when (navigationId) {
 
+                    Constants.NavigationIntent.FromSearchToDownload ->
+                        Navigation.findNavController(v)
+                            .navigate(
+                                SearchFragmentDirections.actionSearchFragmentToDownloadFragment(
+                                    imageData
+                                )
+                            )
 
-                    Constants.NavigationIntent.FromSearchToDownload -> loadNavigation(
-                        v,
-                        bundle,
-                        R.id.action_searchFragment_to_downloadFragment
-                    )
+                    Constants.NavigationIntent.FromMainToDownload ->
+                        Navigation.findNavController(v)
+                            .navigate(
+                                MainFragmentDirections.actionTestFragmentToDownloadFragment(
+                                    imageData
+                                )
+                            )
 
-                    Constants.NavigationIntent.FromMainToDownload -> loadNavigation(
-                        v,
-                        bundle,
-                        R.id.action_testFragment_to_downloadFragment
-                    )
+                    Constants.NavigationIntent.FromCategoryToDownload ->
 
-                    Constants.NavigationIntent.FromCategoryToDownload -> loadNavigation(
-                        v,
-                        bundle,
-                        R.id.action_specificCategoryFragment_to_downloadFragment
-                    )
+                        Navigation.findNavController(v)
+                            .navigate(
+                                SpecificCategoryFragmentDirections.actionSpecificCategoryFragmentToDownloadFragment(
+                                    imageData
+                                )
+                            )
 
                 }
 
@@ -90,10 +97,6 @@ class RecyclerViewAdapter(private val navigationId: Int?) :
 
     }
 
-    private fun loadNavigation(v: View, bundle: Bundle, id: Int) {
-        Navigation.findNavController(v)
-            .navigate(id, bundle)
-    }
 
     class DiffUtilCallBack : DiffUtil.ItemCallback<Data>() {
         override fun areItemsTheSame(oldItem: Data, newItem: Data): Boolean {
