@@ -29,12 +29,12 @@ class MainFragment : Fragment()   {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View  {
+
         binding = FragmentTestBinding.inflate(layoutInflater,container,false)
         loadAd()
         initViewPager()
         initTabLayout()
         initToolBar()
-
 
         return binding.root
     }

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@color/main_background"/>
-    <item android:drawable="@drawable/ws" android:gravity="center"  android:width="@dimen/_50sdp" android:height="@dimen/_50sdp"/>
+    <item android:drawable="@color/main_background" />
+    <item
+        android:width="@dimen/_100sdp"
+        android:height="@dimen/_100sdp"
+        android:drawable="@drawable/ws"
+        android:gravity="center" />
 
 </layer-list>

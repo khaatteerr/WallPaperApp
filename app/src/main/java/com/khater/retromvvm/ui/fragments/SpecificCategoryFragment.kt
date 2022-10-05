@@ -1,8 +1,8 @@
 package com.khater.retromvvm.ui.fragments
 
 
-import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
+ import androidx.core.view.isVisible
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
@@ -14,7 +14,7 @@ import com.khater.retromvvm.recyclerView.RecyclerViewAdapter
 import com.khater.retromvvm.ui.fragments.base.BaseFragment
 import com.khater.retromvvm.utils.Constants
 import com.khater.retromvvm.viewModels.CategoriesViewModel
-import kotlinx.coroutines.Dispatchers
+import com.khater.retromvvm.viewModels.CategoriesViewModelFactory
 import kotlinx.coroutines.launch
 
 
@@ -22,18 +22,24 @@ class SpecificCategoryFragment : BaseFragment<FragmentSpecificCategoryBinding>(
     FragmentSpecificCategoryBinding::inflate
 ) {
 
-    private val viewModel: CategoriesViewModel by viewModels()
-    private val args: SpecificCategoryFragmentArgs by navArgs()
+    private lateinit var viewModel: CategoriesViewModel
+    private val args: SpecificCategoryFragmentArgs by  navArgs()
 
 
     override fun initViewModel() {
 
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            viewModel.loadCategoryToRandom(args.categoryName).collect {
+
+
+        viewModel =
+            ViewModelProvider(this, CategoriesViewModelFactory(args.categoryName))[CategoriesViewModel::class.java]
+
+        viewModel.data.observe(this@SpecificCategoryFragment) {
+            lifecycleScope.launch {
                 recyclerViewAdapter.submitData(it)
             }
         }
+
     }
 
     override fun recyclerAdapter() {
@@ -68,7 +74,8 @@ class SpecificCategoryFragment : BaseFragment<FragmentSpecificCategoryBinding>(
     override var recyclerViewAdapter: RecyclerViewAdapter = RecyclerViewAdapter(
         Constants.NavigationIntent.FromCategoryToDownload
     )
-    private fun categoryName(){
+
+    private fun categoryName() {
         binding.categoryName.text = args.categoryName
     }
 

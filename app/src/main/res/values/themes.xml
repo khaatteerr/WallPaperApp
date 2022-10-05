@@ -56,7 +56,9 @@
 
     <style name="splashScreenTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_image</item>
+        <item name="fontFamily">@font/actor</item>
         <item name="android:statusBarColor">@color/main_background</item>
+
     </style>
 
 </resources>

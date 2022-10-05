@@ -1,5 +1,6 @@
 package com.khater.retromvvm.viewModels
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -16,12 +17,16 @@ import kotlinx.coroutines.launch
 class SearchViewModel : ViewModel() {
 
     private val repository = MainRepository()
+    var data: MutableLiveData<PagingData<Data>> = MutableLiveData( )
 
-    fun searchFromApi(keyWord: String): Flow<PagingData<Data>> {
-        return Pager(config = PagingConfig(pageSize = 30),
-            pagingSourceFactory = { SearchPagingSource(repository .retroService(), keyWord) }
-        ).flow.cachedIn(viewModelScope)
+
+    fun searchFromApi(keyWord: String) {
+        viewModelScope.launch {
+            Pager(config = PagingConfig(pageSize = 30),
+                pagingSourceFactory = { SearchPagingSource(repository.retroService(), keyWord) }
+            ).flow.cachedIn(viewModelScope).collect {
+                data.postValue(it)
+            }
+        }
     }
-
-
 }
