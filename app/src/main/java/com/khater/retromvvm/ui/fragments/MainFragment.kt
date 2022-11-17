@@ -18,7 +18,7 @@ import com.khater.retromvvm.utils.Constants
 
 
 
-class MainFragment : Fragment()   {
+class MainFragment : Fragment() {
     private lateinit var binding: FragmentTestBinding
     private val fragments =
         listOf(HomeFragment(), PopularFragment(), RandomFragment(), CategoriesFragment())
@@ -58,21 +58,20 @@ class MainFragment : Fragment()   {
     }
 
 
-    private fun initViewPager() {
-        val pagerAdapter = ViewPagerAdapter(context as FragmentActivity, fragments)
-        binding.viewPager.adapter = pagerAdapter
-        binding.viewPager.isUserInputEnabled = false
-    }
+        private fun initViewPager() {
+            val pagerAdapter = ViewPagerAdapter(context as FragmentActivity, fragments)
+            binding.viewPager.adapter = pagerAdapter
+            binding.viewPager.isUserInputEnabled = false
+        }
 
 
     private fun initToolBar() {
         binding.toolbar.title = "Wallpapers"
-        (activity as AppCompatActivity) .setSupportActionBar(binding.toolbar)
-
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
     }
 
     private fun menuInflater(view:View){
-        val menuHost: MenuHost = requireActivity()
+        val menuHost: MenuHost  = requireActivity()
 
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {

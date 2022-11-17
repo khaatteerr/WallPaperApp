@@ -12,10 +12,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.khater.retromvvm.R
-import com.khater.retromvvm.databinding.BottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.imageview.ShapeableImageView
+import com.khater.retromvvm.R
+import com.khater.retromvvm.databinding.BottomSheetBinding
 import com.khater.retromvvm.utils.Constants
 import java.io.File
 import java.io.IOException
@@ -84,8 +84,11 @@ class BottomSheetFragment(private val wallUrl :String) : BottomSheetDialogFragme
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             try {
+
+
                 val wallpaperManager = WallpaperManager.getInstance(context)
-                val image = activity?.findViewById<ShapeableImageView>(R.id.downloadImageView)
+                val image = activity?.findViewById<ShapeableImageView>(R.id.download_image_view)
+
                 if (image?.drawable == null) {
                     Toast.makeText(context, "Wait to loading", Toast.LENGTH_LONG).show()
                 } else {

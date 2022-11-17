@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
 import com.khater.retromvvm.databinding.FragmentDownloadBinding
 import com.khater.retromvvm.utils.BlurHashDecoder
 
@@ -28,7 +27,6 @@ class DownloadFragment : Fragment() {
     ): View  {
         binding = FragmentDownloadBinding.inflate(inflater, container, false)
 
-
         loadWall( args.imageData[0] )
         bottomSheet()
         addCallBacks()
@@ -36,30 +34,19 @@ class DownloadFragment : Fragment() {
     }
 
     private fun loadWall(url: String) {
-
-
-
-
-
         val blurHashAsDrawable = BlurHashDecoder.decode(args.imageData[1])
-
-        Glide.with(requireActivity())
-            .asBitmap()
+        Glide.with(this)
             .load(url)
             .centerCrop()
             .placeholder(blurHashAsDrawable?.toDrawable(this.resources))
             .error(blurHashAsDrawable)
-            .transition(BitmapTransitionOptions.withCrossFade(300))
             .into(binding.downloadImageView)
 
         binding.constraintDownload.background = BitmapDrawable(this.resources, blurHashAsDrawable)
-
     }
-
     private fun addCallBacks() {
         binding.backButton.setOnClickListener {v->
            findNavController(v).popBackStack()
-
         }
 
     }

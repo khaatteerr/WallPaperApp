@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 class SearchViewModel : ViewModel() {
 
     private val repository = MainRepository()
-    var data: MutableLiveData<PagingData<Data>> = MutableLiveData( )
+    var data: MutableLiveData<PagingData<Data>> = MutableLiveData()
 
 
     fun searchFromApi(keyWord: String) {

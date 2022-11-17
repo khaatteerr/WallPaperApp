@@ -28,7 +28,7 @@
                 android:id="@+id/collapsing"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_88sdp"
-                app:collapsedTitleTextAppearance="@style/Toolbar.TitleText"
+                app:collapsedTitleTextAppearance="@style/Toolbar.TitleText.collapse"
                 app:expandedTitleGravity="center_vertical|center_horizontal|bottom"
                 app:expandedTitleTextAppearance="@style/Toolbar.TitleText.expanded"
                 app:expandedTitleTextColor="@color/white"

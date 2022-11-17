@@ -21,7 +21,6 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:text="@string/Categories"
-
             android:textColor="@color/white"
             android:fontFamily="@font/actor"
             android:textSize="@dimen/_15ssp"

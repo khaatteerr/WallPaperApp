@@ -14,7 +14,6 @@ class HomeViewModel : ViewModel() {
 
     private val repository = MainRepository()
 
-
     val homePage = Pager(config = PagingConfig(pageSize = 30),
         pagingSourceFactory = {
             HomePagingSource(repository.retroService())

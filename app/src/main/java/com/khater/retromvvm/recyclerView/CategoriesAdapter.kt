@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.khater.retromvvm.R
 import com.khater.retromvvm.databinding.CategoryRowBinding
+import com.khater.retromvvm.model.domain.Category
 import com.khater.retromvvm.ui.fragments.MainFragmentDirections
 
-class CategoriesAdapter(private val category: List<com.khater.retromvvm.model.domain.Category>) :
+class CategoriesAdapter(private val category: List<Category>) :
     RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
 
 

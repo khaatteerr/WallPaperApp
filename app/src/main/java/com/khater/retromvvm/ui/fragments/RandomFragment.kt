@@ -1,14 +1,18 @@
 package com.khater.retromvvm.ui.fragments
 
+import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.khater.retromvvm.databinding.FragmentRandomBinding
+import com.khater.retromvvm.model.domain.Data
 
 import com.khater.retromvvm.model.paging.loadingState.LoadStateAdapter
 import com.khater.retromvvm.recyclerView.RecyclerViewAdapter
+import com.khater.retromvvm.recyclerView.WallInteractionListener
 import com.khater.retromvvm.ui.fragments.base.BaseFragment
 import com.khater.retromvvm.utils.Constants
 import com.khater.retromvvm.viewModels.RandomViewModel
@@ -18,7 +22,7 @@ import kotlinx.coroutines.launch
 
 class RandomFragment : BaseFragment<FragmentRandomBinding>(
     FragmentRandomBinding::inflate
-) {
+) ,WallInteractionListener{
 
 
     private val viewModel: RandomViewModel by viewModels()
@@ -50,8 +54,17 @@ class RandomFragment : BaseFragment<FragmentRandomBinding>(
     }
 
     override var recyclerViewAdapter: RecyclerViewAdapter = RecyclerViewAdapter(
-        Constants.NavigationIntent.FromMainToDownload
-    )
+    this)
+
+    override fun onClickItem(data: Data, view: View) {
+        val imageData = arrayOf(data.fullImageUrl.toString(), data.blurHash.toString())
+        Navigation.findNavController(view)
+            .navigate(
+                MainFragmentDirections.actionTestFragmentToDownloadFragment(
+                    imageData
+                )
+            )
+    }
 
 
 }

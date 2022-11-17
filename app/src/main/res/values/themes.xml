@@ -22,12 +22,20 @@
         <item name="android:textSize">10sp</item>
     </style>
 
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <style name="Toolbar.TitleText.collapse" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">0.1sp</item>
         <item name="android:alpha">0.0</item>
         <item name="fontFamily">@font/actor</item>
         <item name="actionTextColorAlpha">0</item>
     </style>
+
+
+    <style name="Toolbar.TitleText.expanded" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/_20ssp</item>
+        <item name="fontFamily">@font/actor</item>
+
+    </style>
+
 
     <style name="Tab">
         <item name="android:textSize">@dimen/_10ssp</item>
@@ -38,11 +46,7 @@
         <item name="android:textStyle">bold</item>
      </style>
 
-    <style name="Toolbar.TitleText.expanded" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">@dimen/_20ssp</item>
-        <item name="fontFamily">@font/actor</item>
 
-    </style>
 
     <style name="Image">
         <item name="android:gradientRadius">@dimen/_10ssp</item>

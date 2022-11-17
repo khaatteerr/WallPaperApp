@@ -14,7 +14,6 @@ class HomePagingSource(
         return state.anchorPosition
     }
 
-
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int,  Data> {
         return try {
             val nextPage = params.key ?: FIRST_PAGE_INDEX

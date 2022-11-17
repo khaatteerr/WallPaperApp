@@ -6,7 +6,6 @@
     <data>
 
     </data>
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -19,8 +18,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-
         <ImageView
             android:id="@+id/categoryImageView"
             android:layout_width="match_parent"
@@ -30,7 +27,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="ContentDescription"
             tools:srcCompat="@tools:sample/avatars" />
-
         <TextView
             android:id="@+id/categoryTextView"
             android:layout_width="wrap_content"

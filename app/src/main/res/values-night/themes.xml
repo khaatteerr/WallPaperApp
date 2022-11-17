@@ -25,7 +25,7 @@
         <item name="hideOnScroll">true</item>
     </style>
 
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <style name="Toolbar.TitleText.collapse" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">0.1sp</item>
         <item name="hideOnScroll">true</item>
         <item name="fontFamily">@font/actor</item>
@@ -36,9 +36,6 @@
         <item name="fontFamily">@font/actor</item>
     </style>
 
-    <style name="Image">
-        <item name="android:gradientRadius">@dimen/_10ssp</item>
-    </style>
 
     <style name="Tab">
         <item name="android:textSize">@dimen/_10ssp</item>
@@ -48,6 +45,13 @@
         <item name="fontFamily">@font/actor</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+
+
+    <style name="Image">
+        <item name="android:gradientRadius">@dimen/_10ssp</item>
+    </style>
+
 
 
     <style name="roundedImageView" parent="">

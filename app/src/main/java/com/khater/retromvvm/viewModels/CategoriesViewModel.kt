@@ -15,8 +15,8 @@ import kotlinx.coroutines.launch
 
 class CategoriesViewModel constructor(private var categoryID: String) : ViewModel() {
     private val repository = MainRepository()
-    var data: MutableLiveData<PagingData<Data>> = MutableLiveData()
 
+    var data: MutableLiveData<PagingData<Data>> = MutableLiveData()
 
     init {
         viewModelScope.launch {

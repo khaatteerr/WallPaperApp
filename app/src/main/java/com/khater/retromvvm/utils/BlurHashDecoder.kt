@@ -12,7 +12,7 @@ import kotlin.math.withSign
 
 
 object BlurHashDecoder {
-    fun blurHashBitmap(resources: Resources, attachment: com.khater.retromvvm.model.domain.Data?): BitmapDrawable {
+    fun blurHashBitmap(resources: Resources, attachment:  Data?): BitmapDrawable {
         return BitmapDrawable(
             resources,
             decode(
