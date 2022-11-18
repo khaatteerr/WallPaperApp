@@ -3,15 +3,16 @@ package com.khater.retromvvm.recyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.khater.retromvvm.R
 import com.khater.retromvvm.databinding.CategoryRowBinding
 import com.khater.retromvvm.model.domain.Category
-import com.khater.retromvvm.ui.fragments.MainFragmentDirections
 
-class CategoriesAdapter(private val category: List<Category>) :
+class CategoriesAdapter(
+    private val category: List<Category>,
+    private val listener: CategoryInteractionListener
+) :
     RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
 
 
@@ -35,12 +36,8 @@ class CategoriesAdapter(private val category: List<Category>) :
                 .error(R.color.babyBlue)
                 .into(categoryImageView)
         }
-        holder.itemView.setOnClickListener { v ->
-
-            val action = MainFragmentDirections.actionTestFragmentToSpecificCategoryFragment(currentCategory.categoryName)
-            Navigation.findNavController(v)
-                .navigate(action)
-
+        holder.itemView.setOnClickListener {
+            listener.onClickCategory(currentCategory, it)
         }
     }
 

@@ -53,8 +53,6 @@ class RecyclerViewAdapter(private val listener: WallInteractionListener) :
             itemView.setOnClickListener {
                 listener.onClickItem(data, it)
             }
-
-
         }
 
     }
