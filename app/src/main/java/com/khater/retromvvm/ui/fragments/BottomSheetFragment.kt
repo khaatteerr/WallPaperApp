@@ -84,8 +84,6 @@ class BottomSheetFragment(private val wallUrl :String) : BottomSheetDialogFragme
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             try {
-
-
                 val wallpaperManager = WallpaperManager.getInstance(context)
                 val image = activity?.findViewById<ShapeableImageView>(R.id.download_image_view)
 

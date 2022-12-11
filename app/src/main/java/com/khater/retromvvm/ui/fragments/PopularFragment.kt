@@ -18,10 +18,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 
-class PopularFragment : BaseFragment<FragmentPopularBinding>(
-    FragmentPopularBinding::inflate
-) ,WallInteractionListener{
+class PopularFragment : BaseFragment ()  {
     private val viewModel: PopularViewModel by viewModels()
+    override var recyclerViewAdapter: RecyclerViewAdapter = RecyclerViewAdapter(this)
 
     override fun initViewModel() {
         lifecycleScope.launch  {
@@ -32,37 +31,6 @@ class PopularFragment : BaseFragment<FragmentPopularBinding>(
 
     }
 
-    override fun recyclerAdapter() {
-        val layoutManager = GridLayoutManager(context, 3)
-        binding.wallRecyclerViewPopular.layoutManager = layoutManager
-        binding.wallRecyclerViewPopular.adapter = recyclerViewAdapter.withLoadStateHeaderAndFooter(
-            header = LoadStateAdapter { recyclerViewAdapter.retry() },
-            footer = LoadStateAdapter { recyclerViewAdapter.retry() }
-        )
-        recyclerViewAdapter.addLoadStateListener { loadState ->
-            binding.wallRecyclerViewPopular.isVisible =
-                loadState.source.refresh is LoadState.NotLoading
-            binding.popularProgressBar.isVisible = loadState.source.refresh is LoadState.Loading
-            binding.popularButtonRetry.isVisible = loadState.source.refresh is LoadState.Error
-            handelError(loadState)
-        }
-        binding.popularButtonRetry.setOnClickListener {
-            recyclerViewAdapter.retry()
-        }
-    }
-
-    override var recyclerViewAdapter: RecyclerViewAdapter = RecyclerViewAdapter(
-   this)
-
-    override fun onClickItem(data: Data, view: View) {
-        val imageData = arrayOf(data.fullImageUrl.toString(), data.blurHash.toString())
-        Navigation.findNavController(view)
-            .navigate(
-                MainFragmentDirections.actionTestFragmentToDownloadFragment(
-                    imageData
-                )
-            )
-    }
 
 
 }

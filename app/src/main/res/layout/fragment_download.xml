@@ -17,7 +17,7 @@
             android:layout_height="@dimen/_30sdp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="@null"
+            android:background="@drawable/circle_image_view"
             android:src="@drawable/ic_baseline_arrow_back_24"
             app:layout_constraintBottom_toTopOf="@+id/download_image_view"
             app:layout_constraintStart_toStartOf="parent"

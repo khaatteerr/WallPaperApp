@@ -3,6 +3,7 @@ package com.khater.retromvvm.ui.activities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.khater.retromvvm.R
+import com.khater.retromvvm.database.localData.dao.WallDatabase
 import com.khater.retromvvm.databinding.ActivityMainBinding
 
 
@@ -15,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        WallDatabase.getInstance(applicationContext)
+
 
     }
 

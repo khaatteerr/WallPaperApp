@@ -9,7 +9,6 @@ class CategoriesViewModelFactory(private val categoryID: String) : ViewModelProv
 
         if (modelClass.isAssignableFrom(CategoriesViewModel::class.java)) {
             return CategoriesViewModel(categoryID) as T
-
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

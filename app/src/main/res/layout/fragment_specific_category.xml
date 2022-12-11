@@ -17,7 +17,7 @@
             android:id="@+id/wallCategoriesRecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             app:layout_constraintBottom_toTopOf="@+id/adView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +35,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+
         <Button
             android:id="@+id/CategoryButtonRetry"
             android:layout_width="wrap_content"
@@ -46,6 +48,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+<!--        for test-->
+<!--        ca-app-pub-3940256099942544/6300978111-->
+<!--        -->
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
@@ -65,14 +71,16 @@
             android:id="@+id/categoryName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_8sdp"
             android:gravity="left"
             android:fontFamily="@font/actor"
             android:textColor="@color/white"
             android:textSize="@dimen/_24ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_24" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

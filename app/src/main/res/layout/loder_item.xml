@@ -18,7 +18,6 @@
             android:fontFamily="@font/actor"
             android:layout_marginStart="@dimen/_5sdp"
             android:textColor="@color/white" />
-
         <Button
             android:id="@+id/retryButtonItem"
             android:layout_width="match_parent"
@@ -28,7 +27,6 @@
             android:backgroundTint="@color/whiteBlue"
             android:text="@string/retry"
             android:visibility="visible" />
-
         <com.github.ybq.android.spinkit.SpinKitView
             android:id="@+id/progressBar"
             style="@style/SpinKitView.Large.Pulse"

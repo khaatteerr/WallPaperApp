@@ -80,17 +80,39 @@ dependencies {
 
     //sdp ssp
     implementation 'com.intuit.ssp:ssp-android:1.1.0'
-    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
 
     //Google ads
-    implementation 'com.google.android.gms:play-services-ads:21.2.0'
+    implementation 'com.google.android.gms:play-services-ads:21.3.0'
 
     //progress bar
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
-    def nav_version = "2.5.2"
+    def nav_version = "2.5.3"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //room dependency
+    def room_version = "2.4.3"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    implementation "androidx.room:room-rxjava3:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
+    implementation "io.reactivex.rxjava3:rxjava:3.1.5"
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+
+    implementation "androidx.activity:activity-ktx:1.6.1"
+    implementation "androidx.fragment:fragment-ktx:1.5.4"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
+
+    // lottie animation
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
  }
